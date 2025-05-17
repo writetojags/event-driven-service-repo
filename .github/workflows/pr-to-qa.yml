@@ -3,7 +3,7 @@ name: PR Review to QA
 on:
   pull_request:
     branches:
-      - qa
+      - '*'
 
 jobs:
   validate-pr:
