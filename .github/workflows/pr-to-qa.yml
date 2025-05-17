@@ -38,10 +38,10 @@ jobs:
           out: reports
 
       - name: Upload Vulnerability Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: vulnerability-report
-          path: reports
+          path: ./reports
 
       - name: Slack Notification - Success
         if: success()
