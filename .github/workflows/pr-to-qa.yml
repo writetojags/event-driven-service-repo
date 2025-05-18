@@ -32,6 +32,9 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.java.binaries=target
+            
+      - name: Make Maven Wrapper for Maven
+        run: chmod +x ./mvnw
         
       - name: Install Snyk CLI
         run: npm install -g snyk
