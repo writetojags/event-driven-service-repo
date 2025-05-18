@@ -40,9 +40,9 @@ jobs:
         run: npm install -g snyk
 
       - name: Run Snyk CLI for Maven
-        run: |
+        run: snyk test --file=pom.xml --severity-threshold=medium
             #mvn dependency:tree -DoutputType=dot -batch-mode -DoutputFile=dependency-graph.dot
-            snyk test --file=pom.xml --severity-threshold=medium
+            
         contine-on-error: true
         working-directory: .
         env:
