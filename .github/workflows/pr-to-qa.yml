@@ -36,8 +36,8 @@ jobs:
       - name: Make Maven Wrapper for Maven
         run: chmod +x ./mvnw
         
-      - name: Install Snyk CLI
-        run: npm install -g snyk
+      #- name: Install Snyk CLI
+       # run: npm install -g snyk
 
       - name: Run Snyk CLI for Maven
         run: |
