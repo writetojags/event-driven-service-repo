@@ -38,7 +38,7 @@ jobs:
         env:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-            args: test
+            args: monitor
 
       - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v4
