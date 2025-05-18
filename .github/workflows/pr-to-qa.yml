@@ -3,8 +3,7 @@ name: PR Review to QA
 on:
   pull_request:
     branches:
-      - '**'
-
+      - '*'
 jobs:
   validate-pr:
     runs-on: ubuntu-latest
