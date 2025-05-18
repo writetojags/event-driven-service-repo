@@ -45,7 +45,6 @@ jobs:
             --format HTML \
             --out ./reports \
             --scan . \
-            --noupdate \
             --nvdApiKey $NVD_API_KEY
         shell: /usr/bin/bash -e {0}
         env:
