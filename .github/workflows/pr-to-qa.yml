@@ -45,8 +45,8 @@ jobs:
             --format HTML \
             --out ./reports \
             --scan . \
-            --nvdApiKey ${{ secrets.NVD_API_KEY }}
-        env:
+            --noupdate
+            
           JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
 
 
