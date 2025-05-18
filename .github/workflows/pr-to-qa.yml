@@ -37,10 +37,10 @@ jobs:
         uses: snyk/actions/maven@master
         env:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-            JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
+            
         with:
-            args: monitor --all-projects --severity-threshold=medium
-
+            args: test --all-projects --severity-threshold=medium
+       
 
       - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v4
