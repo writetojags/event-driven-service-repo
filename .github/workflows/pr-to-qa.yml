@@ -30,7 +30,7 @@ jobs:
             -Dsonar.organization=writetojags
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-            -Dsonar.java.binaries=target
+            -Dsonar.java.binaries=event-driven-springboot-demo-with-integrations/target
 
       - name: OWASP Dependency-Check
         uses: dependency-check/Dependency-Check_Action@main
@@ -38,7 +38,6 @@ jobs:
           project: 'EventDrivenService'
           format: 'HTML'
           out: ./reports
-          distribution: 'zip'
 
       - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v4
