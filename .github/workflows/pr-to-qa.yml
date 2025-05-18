@@ -39,7 +39,7 @@ jobs:
         with:
           orgs: test --file=pom.xml --severity-threshold=medium
         env:
-            JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
+            #JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
             working-directory: ./
             
