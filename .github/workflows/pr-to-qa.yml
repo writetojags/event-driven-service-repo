@@ -3,11 +3,11 @@ name: PR Review to QA
 on:
   pull_request:
     branches:
-      - '*'
+      - '**'
+
 jobs:
   validate-pr:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -37,12 +37,8 @@ jobs:
           project: 'EventDrivenService'
           format: 'HTML'
           out: ./reports
-          args: >
-            --scan ./ 
-            --format HTML 
-            --out ./reports
-      env:
-        JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+        env:
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
 
       - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v4
