@@ -42,7 +42,7 @@ jobs:
             --scan ./ 
             --format HTML 
             --out ./reports
-        java: '17'
+          java: '17'
 
       - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v4
