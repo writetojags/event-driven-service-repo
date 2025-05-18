@@ -40,7 +40,7 @@ jobs:
         run: |
             #mvn dependency:tree -DoutputType=dot -batch-mode -DoutputFile=dependency-graph.dot
             snyk test --file=pom.xml --severity-threshold=medium
-        working-directory: ./
+        working-directory: ./event-driven-service
         env:
             JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
