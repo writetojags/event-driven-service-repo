@@ -32,6 +32,9 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.java.binaries=target
+            
+      - name: Install Snyk CLI
+        run:  npm instal -g snyk
 
       - name: Run Snyk CLI for Maven
         run:  snyk test --file=pom.xml --severity-threshold=medium
