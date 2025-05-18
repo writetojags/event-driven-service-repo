@@ -38,10 +38,10 @@ jobs:
         
       - name: Run Snyk CLI for Maven
         run: |
-            mvn dependency:tree -DoutputType=dot -batch-mode -DoutputFile=dependency-graph.dot
+            #mvn dependency:tree -DoutputType=dot -batch-mode -DoutputFile=dependency-graph.dot
             snyk test --file=pom.xml --severity-threshold=medium
         env:
-            JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
+            #JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
 
