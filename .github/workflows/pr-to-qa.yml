@@ -34,11 +34,11 @@ jobs:
       - name: OWASP Dependency-Check
         uses: dependency-check/Dependency-Check_Action@main
         with:
-          project: 'EventDrivenService'
-          format: 'HTML'
-          out: ./reports
-        env:
-          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+          args: >
+            --project "EventDrivenService"
+            --format HTML
+            --out ./reports
+            --scan .
 
       - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v4
