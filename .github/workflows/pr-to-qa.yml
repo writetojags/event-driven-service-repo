@@ -33,13 +33,14 @@ jobs:
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.java.binaries=target
 
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/maven@master
+      - name: Run Snyk CLI to check for vulnerabilities
+        run: |
+            npm install -g snyk
+            snyk auth ${{ secrets.SNYK_TOKEN }}
+            snyk test --all-projects --severity-threshold=medium
         env:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-            
-        with:
-            args: test --all-projects --severity-threshold=medium
+
        
 
       - name: Upload Vulnerability Report
