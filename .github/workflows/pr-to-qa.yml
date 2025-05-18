@@ -46,7 +46,8 @@ jobs:
             --out ./reports \
             --scan . \
             --noupdate
-            --nvdApiKey "$NVD_API_KEY"
+            --nvdApiKey "${NVD_API_KEY}"
+        shell: /usr/bin/bash -e {0}
         env:
           JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
