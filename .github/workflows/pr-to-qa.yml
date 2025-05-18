@@ -37,7 +37,7 @@ jobs:
         run: |
             npm instal -g snyk
             snyk test --file=pom.xml --severity-threshold=medium
-        working-directory: .  # <-- update to your actual subdir if needed
+        working-directory: ./event-driven-service  # <-- update to your actual subdir if needed
         env:
             JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
