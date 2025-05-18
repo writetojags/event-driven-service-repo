@@ -44,9 +44,12 @@ jobs:
             --format HTML
             --out ./reports
             --scan .
+            --data ./odc-data
+            --enableExperimental
+            --log ./odc.log
+            --disableAssembly
         env:
-          JAVA_HOME: ${{ steps.setup-java.outputs.path }}
-         
+          JAVA_HOME: /opt/java/openjdk      
 
       - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v4
