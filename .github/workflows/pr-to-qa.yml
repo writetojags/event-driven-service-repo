@@ -34,13 +34,20 @@ jobs:
             -Dsonar.java.binaries=target
 
       - name: Install and Run Snyk CLI for Maven
-        run: |
-            npm instal -g snyk
-            snyk test --all-projects --detection-depth=4 --severity-threshold=medium --exclude=target
-        working-directory: .  # <-- update to your actual subdir if needed
+        uses: snyk/actions/maven@master
+        with:
+           orgs: test --severity-threshold=medium
         env:
             JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+            working-directory: .
+       # run: |
+        #    npm instal -g snyk
+         #   snyk test --all-projects --detection-depth=4 --severity-threshold=medium --exclude=target
+        #working-directory: .  # <-- update to your actual subdir if needed
+        #env:
+         #   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
+          #  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
 
 
