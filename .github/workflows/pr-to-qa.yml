@@ -42,7 +42,7 @@ jobs:
 
       - name: Run OWASP Dependency Check
         run: |
-            java -jar $HOME/dependency-check/dependency-check-9.0.7/dependency-check-core-9.0.7.jar \
+            java -jar $HOME/dependency-check/dependency-check-core-9.0.7.jar \
             --project "EventDrivenService" \
             --format HTML \
             --out ./reports \
