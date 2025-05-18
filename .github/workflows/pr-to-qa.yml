@@ -37,16 +37,17 @@ jobs:
         run: |
             curl -L -o dc.zip https://github.com/jeremylong/DependencyCheck/releases/download/v9.0.7/dependency-check-9.0.7-release.zip
             unzip dc.zip -d $HOME
-            
-
 
       - name: Run OWASP Dependency Check
         run: |
-            java -jar $HOME/dependency-check/dependency-check-core-9.0.7.jar \
+            $HOME/dependency-check/dependency-check/bin/dependency-check.sh \
             --project "EventDrivenService" \
             --format HTML \
             --out ./reports \
             --scan .
+        env:
+          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
+
 
 
       - name: Upload Vulnerability Report
