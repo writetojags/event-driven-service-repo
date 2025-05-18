@@ -33,7 +33,7 @@ jobs:
             -Dsonar.java.binaries=target
             
       - name: Export JAVA_HOME
-        run: echo "JAVA_HOME=${JAVA_HOME}" >> $GITHUB_ENV
+        run: echo "JAVA_HOME=${{ steps.setup-java.outputs.path }}" >> $GITHUB_ENV
 
 
       - name: OWASP Dependency-Check
@@ -44,6 +44,9 @@ jobs:
             --format HTML
             --out ./reports
             --scan .
+        env:
+          JAVA_HOME: ${{ steps.setup-java.outputs.path }}
+         
 
       - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v4
