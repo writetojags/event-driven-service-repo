@@ -33,13 +33,16 @@ jobs:
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.java.binaries=target
 
-      - name: Run Snyk CLI to check for vulnerabilities
+      - name: Run Snyk CLI for Maven
         run: |
             npm install -g snyk
             snyk auth ${{ secrets.SNYK_TOKEN }}
-            snyk test --all-projects --severity-threshold=medium
+            mvn clean install -DskipTests
+            snyk test --file=pom.xml --severity-threshold=medium
         env:
+            JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
 
        
 
