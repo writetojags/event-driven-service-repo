@@ -127,3 +127,11 @@ jobs:
           fields: repo,message,commit,author
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          
+      - name: Deploy to PCF QA
+        if: success()
+        run: |
+            echo "Deploying to PCF QA environment..."
+            curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github" | tar -zx
+            ./cf login -a ${{ secrets.PCF_API }} -u ${{ secrets.PCF_USERNAME }} -p ${{ secrets.PCF_PASSWORD }} -o ${{ secrets.PCF_ORG }} -s ${{ secrets.PCF_SPACE }}
+            ./cf push ${{ secrets.PCF_APP_NAME }} -f manifest.yml
