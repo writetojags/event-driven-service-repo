@@ -36,7 +36,7 @@ jobs:
       - name: Install OWASP Dependency Check CLI
         run: |
             curl -L -o dc.zip https://github.com/jeremylong/DependencyCheck/releases/download/v9.0.7/dependency-check-9.0.7-release.zip
-            unzip dc.zip -d $HOME/dependency-check
+            unzip dc.zip -d $HOME
             
 
 
