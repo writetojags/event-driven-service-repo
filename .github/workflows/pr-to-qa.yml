@@ -43,7 +43,7 @@ jobs:
         run: snyk test --file=pom.xml --severity-threshold=medium
             #mvn dependency:tree -DoutputType=dot -batch-mode -DoutputFile=dependency-graph.dot
             
-        contine-on-error: true
+        continue-on-error: true
         working-directory: .
         env:
             JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
