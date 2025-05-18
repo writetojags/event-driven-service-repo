@@ -40,8 +40,8 @@ jobs:
             --format HTML
             --out ./reports
             --scan .
-          env:
-           JAVA_HOME: ${{ steps.setup-java.outputs.path }}
+        env:
+          JAVA_HOME: ${{ steps.setup-java.outputs.path }}
 
 
       - name: Upload Vulnerability Report
