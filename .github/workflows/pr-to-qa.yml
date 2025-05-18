@@ -40,7 +40,6 @@ jobs:
             
         with:
             args: test --all-projects --severity-threshold=medium
-            java-version: '17'
        
 
       - name: Upload Vulnerability Report
