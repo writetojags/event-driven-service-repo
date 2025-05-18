@@ -37,7 +37,7 @@ jobs:
         run: npm instal -g snyk   
         
       - name: Run Snyk CLI for Maven
-        run: test --file=pom.xml --severity-threshold=medium
+        run: snyk test --file=pom.xml --severity-threshold=medium
         working-directory: .
         env:
             #JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
