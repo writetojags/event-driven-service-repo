@@ -49,6 +49,7 @@ jobs:
             --nvdApiKey "$NVD_API_KEY"
         env:
           JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
           
 
 
