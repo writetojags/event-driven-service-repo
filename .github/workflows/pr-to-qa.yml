@@ -8,6 +8,7 @@ on:
 jobs:
   validate-pr:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -31,23 +32,20 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.java.binaries=target
-            
-      - name: Export JAVA_HOME
-        run: echo "JAVA_HOME=${{ steps.setup-java.outputs.path }}" >> $GITHUB_ENV
 
       - name: Install OWASP Dependency Check CLI
         run: |
             wget https://github.com/jeremylong/DependencyCheck/releases/download/v9.0.7/dependency-check-9.0.7-release.zip
             unzip dependency-check-9.0.7-release.zip -d $HOME/dependency-check
-            chmod +x $HOME/dependency-check/bin/dependency-check.sh
 
       - name: Run OWASP Dependency Check
         run: |
-            $HOME/dependency-check/bin/dependency-check.sh \
+            java -jar $HOME/dependency-check/dependency-check-core-9.0.7.jar \
             --project "EventDrivenService" \
             --format HTML \
             --out ./reports \
-            --scan .     
+            --scan .
+
 
       - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v4
