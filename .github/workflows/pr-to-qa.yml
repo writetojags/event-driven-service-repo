@@ -36,14 +36,14 @@ jobs:
       - name: Make Maven Wrapper for Maven
         run: chmod +x ./mvnw
         
-      #- name: Install Snyk CLI
-       # run: npm install -g snyk
+      - name: Install Snyk CLI
+        run: npm install -g snyk
 
       - name: Run Snyk CLI for Maven
         run: |
             #mvn dependency:tree -DoutputType=dot -batch-mode -DoutputFile=dependency-graph.dot
             snyk test --file=pom.xml --severity-threshold=medium
-        working-directory: ./event-driven-service
+        working-directory: .
         env:
             JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
