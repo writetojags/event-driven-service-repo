@@ -33,7 +33,9 @@ jobs:
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.java.binaries=target
             
-            
+      - name: Install Snyk CLI     
+        uses: snyk/actions/maven@master
+        
       - name: Run Snyk CLI for Maven
         run: |
             mvn dependency:tree -DoutputType=dot -batch-mode -DoutputFile=dependency-graph.dot
