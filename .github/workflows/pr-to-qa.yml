@@ -34,7 +34,7 @@ jobs:
             -Dsonar.java.binaries=target
             
       - name: Install Snyk CLI     
-        uses: snyk/actions/maven@master
+        run: npm install -g snyk
         
       - name: Run Snyk CLI for Maven
         run: |
