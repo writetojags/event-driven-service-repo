@@ -35,12 +35,13 @@ jobs:
 
       - name: Install OWASP Dependency Check CLI
         run: |
-            wget https://github.com/jeremylong/DependencyCheck/releases/download/v9.0.7/dependency-check-9.0.7-release.zip
-            unzip dependency-check-9.0.7-release.zip -d $HOME/dependency-check
+            curl -L -o dc.zip https://github.com/jeremylong/DependencyCheck/releases/download/v9.0.7/dependency-check-9.0.7-release.zip
+            unzip dc.zip -d $HOME/dependency-check
+
 
       - name: Run OWASP Dependency Check
         run: |
-            java -jar $HOME/dependency-check-9.0.7/dependency-check-core-9.0.7.jar \
+            java -jar $HOME/dependency-check/dependency-check-core-9.0.7.jar \
             --project "EventDrivenService" \
             --format HTML \
             --out ./reports \
